@@ -1,0 +1,78 @@
+/* -------------------------
+   HOLOGRAPHIC BLUE THEME
+   -------------------------*/
+:root{
+  --bg-1: #061025;
+  --glass: rgba(255,255,255,0.06);
+  --accent-1: rgba(64, 181, 255, 0.14);
+  --holo-a: rgba(255, 81, 227, 0.55);
+  --holo-b: rgba(27, 77, 255, 0.45);
+  --neon: rgba(255, 81, 227, 0.9);
+  --glass-border: rgba(255,255,255,0.05);
+  --text: #e6f6ff;
+  --muted: #9fbfdd;
+  --card: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:radial-gradient(1200px 600px at 10% 10%, rgba(255,81,227,0.06), transparent 8%),radial-gradient(1000px 400px at 90% 90%, rgba(27,77,255,0.06), transparent 10%), var(--bg-1); color:var(--text); -webkit-font-smoothing:antialiased; perspective: 1000px;}
+
+/* Layout */
+.wrap{display:flex;min-height:100vh}
+nav.side{width:84px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-right:1px solid var(--glass-border);backdrop-filter: blur(6px);position:fixed;left:12px;top:12px;bottom:12px;border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:12px;align-items:center}
+nav.side .logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--holo-a),var(--holo-b));display:flex;align-items:center;justify-content:center;font-weight:700;color:#02122a;box-shadow:0 6px 18px rgba(255,81,227,0.12), inset 0 -6px 18px rgba(255,255,255,0.04)}
+nav.side a{width:52px;height:52px;border-radius:10px;display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--text);opacity:0.9; transform-style: preserve-3d; transition: transform 0.3s ease;}
+nav.side a:hover{transform:translateY(-4px) rotateY(5deg) translateZ(5px);box-shadow:0 6px 18px rgba(255,81,227,0.12);}
+.nav-icon{width:28px;height:28px}
+
+/* Other styles remain the same as original code */
+header.header{position:relative;padding:44px 44px 22px 140px}
+.hero{display:flex;align-items:center;gap:36px}
+.hero .text{max-width:720px}
+h1{font-size:40px;margin:0 0 8px 0;line-height:1.02;letter-spacing:-0.6px}
+p.lead{margin:0;color:var(--muted);font-size:16px}
+.card{background:var(--card);border-radius:18px;padding:18px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 8px 30px rgba(3,20,40,0.5); transform-style: preserve-3d; transition: transform 0.3s ease;}
+.card:hover{transform: rotateY(5deg) rotateX(2deg) translateZ(10px);}
+.orb{width:240px;height:240px;border-radius:50%;background:radial-gradient(circle at 30% 30%, var(--neon), transparent 30%),linear-gradient(135deg,var(--holo-a),var(--holo-b));box-shadow:0 18px 60px rgba(255,81,227,0.12);display:flex;align-items:center;justify-content:center;position:relative; transform-style: preserve-3d; transition: transform 0.5s ease; animation: hologram 3s ease-in-out infinite;}
+.orb:hover{transform: rotateY(15deg) rotateX(10deg) translateZ(30px);}
+.orb:after{content:'';position:absolute;inset:0;border-radius:50%;mix-blend-mode:screen;filter:blur(22px);opacity:0.85}
+
+@keyframes hologram {
+  0%, 100% { filter: hue-rotate(0deg) brightness(1); }
+  50% { filter: hue-rotate(30deg) brightness(1.1); }
+}
+.orb .inner{width:120px;height:120px;border-radius:12px;background:rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;font-weight:600; transform: translateZ(20px);}
+main{flex:1;padding:44px 44px 120px 140px}
+section{margin:60px 0}
+.section-title{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.section-title h2{margin:0}
+.muted{color:var(--muted);font-size:14px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.plate{position:relative;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);cursor:pointer;transition:transform .36s cubic-bezier(.22,.9,.35,1), box-shadow .36s; transform-style: preserve-3d;}
+.plate img{width:100%;height:260px;object-fit:cover;display:block;transition:transform .6s ease}
+.plate:hover img{transform:scale(1.05);}
+.plate:hover{transform:translateY(-8px) rotateY(10deg) translateZ(20px);box-shadow:0 30px 60px rgba(255,81,227,0.25);}
+.plate::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);transition:left 0.5s;}
+.plate:hover::before{left:100%;}
+.plate .meta{position:absolute;left:12px;bottom:12px;padding:8px 10px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));backdrop-filter: blur(6px);font-size:13px}
+.lightbox{position:fixed;inset:0;background:linear-gradient(180deg, rgba(1,8,20,0.6), rgba(1,8,20,0.9));display:flex;align-items:center;justify-content:center;padding:40px;z-index:80;opacity:0;pointer-events:none;transition:opacity .28s}
+.lightbox.open{opacity:1;pointer-events:auto}
+.lightbox .view{max-width:1100px;width:100%;border-radius:12px;overflow:hidden}
+.lightbox img{width:100%;height:auto;display:block}
+.close-btn{position:absolute;right:28px;top:28px;background:rgba(0,0,0,0.35);border-radius:10px;padding:8px 10px;color:var(--text);cursor:pointer}
+footer{padding:28px 140px 60px 140px;color:var(--muted);font-size:13px}
+.reveal{opacity:0;transform:translateY(18px) scale(.995);transition:opacity .7s ease, transform .7s cubic-bezier(.2,.9,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.grid-lines{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.01) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.01) 1px, transparent 1px);background-size:140px 140px;mix-blend-mode:overlay}
+
+@media (max-width:900px){
+  nav.side{left:10px;top:auto;bottom:10px;right:10px;width:auto;padding:8px;flex-direction:row;border-radius:12px}
+  header.header{padding-left:20px}
+  main{padding-left:20px;padding-right:20px}
+}
+@media (max-width:520px){
+  .hero{flex-direction:column;align-items:flex-start}
+  .orb{width:160px;height:160px}
+  .orb .inner{width:92px;height:92px}
+}

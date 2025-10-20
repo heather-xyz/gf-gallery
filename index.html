@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>1st Monthsary — For Her (Architect)</title>
+  <meta name="description" content="A holographic-blue interactive monthsary site showcasing her architectural plates, music playlist and love note." />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <nav class="side card" aria-label="side navigation">
+    <div class="logo">RR</div>
+    <a href="#home" title="Home"><img src="assets/Home.svg" alt="Home" class="nav-icon"></a>
+    <a href="#gallery" title="Gallery"><img src="assets/Gallery.svg" alt="Gallery" class="nav-icon"></a>
+    <a href="#music" title="Music"><img src="assets/Music.svg" alt="Music" class="nav-icon"></a>
+    <a href="#note" title="Note"><img src="assets/Note.svg" alt="Note" class="nav-icon"></a>
+    <a id="shareBtn" href="#" title="Share/Download"><img src="assets/Download.svg" alt="Download" class="nav-icon"></a>
+  </nav>
+
+  <main>
+    <header class="header" id="home">
+      <div class="hero">
+        <div class="text">
+          <div class="card reveal">
+            <h1>Happy 1st Monthsary, Mahal! 💙</h1>
+            <p class="lead">Isang munting site para ipakita ang mga gawa mo — ang iyong mga plates at sketches — at para huminahon habang pinapakinggan ang playlist ko para sa'yo.</p>
+            <p class="muted" style="margin-top:10px">Scroll down para i-explore — may gallery, music player, at maliit na personal note.</p>
+          </div>
+
+          <div style="height:14px"></div>
+          <div class="card reveal" style="display:inline-flex;gap:10px;align-items:center">
+            <div style="width:12px;height:12px;border-radius:3px;background:linear-gradient(135deg,var(--holo-a),var(--holo-b))"></div>
+            <div>
+              <div style="font-weight:700">For: <span style="color:var(--muted);font-weight:500">Her — The Architect</span></div>
+              <div class="muted">From: Your forever admirer</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="orb card reveal" aria-hidden="true">
+          <div class="inner">1M</div>
+        </div>
+      </div>
+      <div class="grid-lines" aria-hidden="true"></div>
+    </header>
+
+    <!-- GALLERY -->
+    <section id="gallery" aria-labelledby="galleryTitle" class="reveal">
+      <div class="section-title">
+        <h2 id="galleryTitle">Gallery — Her Plates</h2>
+        <div class="muted">Hover to see details, click to enlarge</div>
+      </div>
+      <div class="gallery" id="galleryGrid"></div>
+      <div class="card reveal" style="margin-top:20px">
+        <h3>Upload New Plate</h3>
+        <input type="file" id="fileInput" accept="image/*"/>
+        <button id="uploadBtn" style="margin-top:8px;cursor:pointer">Upload</button>
+        <div id="uploadMsg" class="muted" style="margin-top:6px;font-size:13px"></div>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-hidden="true">
+      <div class="close-btn" id="closeLight">✕</div>
+      <div class="view card" id="lightview">
+        <img src="" alt="Enlarged plate" id="lightImg">
+        <div style="padding:12px;background:linear-gradient(180deg, rgba(0,0,0,0.35), transparent)"></div>
+      </div>
+    </div>
+
+    <!-- MUSIC -->
+    <section id="music" class="reveal">
+      <div class="section-title reveal">
+        <h2>Music — Playlist for Her</h2>
+        <div class="muted">Enjoy the playlist!</div>
+      </div>
+      <div class="reveal card" style="padding:20px; display:flex; justify-content:center; align-items:center;">
+        <iframe 
+          data-testid="embed-iframe" 
+          style="border-radius:12px" 
+          src="https://open.spotify.com/embed/playlist/51bos7fXsOhtQk1R4MqLBO?utm_source=generator" 
+          width="100%" 
+          height="352" 
+          frameBorder="0" 
+          allowfullscreen="" 
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- NOTE -->
+    <section id="note" class="reveal">
+      <div class="section-title">
+        <h2>Little Note</h2>
+        <div class="muted">A short, handwritten-like message.</div>
+      </div>
+      <div class="card" style="font-family: 'Georgia', serif;line-height:1.6;font-size:16px">
+        Mahal, 
+        <br><br>
+        Sa bawat plate na iyong ginagawa, kitang-kita ko ang puso at talino mo. Salamat sa pagbahagi ng ganda ng mundo sa akin — maliit man o malaki — at sa pag-inspire araw-araw. Happy 1st monthsary. ❤️ 
+        <br><br>
+        — Your one and only.
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  Built with ❤️ — Replace images and songs with your own files. Open this file directly in a browser.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
